@@ -1,0 +1,30 @@
+language: ruby
+cache:
+- bundler
+install:
+- bundle install
+rvm:
+- 1.9.3
+- 2.0
+- 2.1
+- 2.2
+notifications:
+  email:
+    recipients:
+    - yann@skale-5.com
+    on_success: change
+    on_failure: always
+script:
+- bundle exec rake default
+- gem build sensu-plugins-pingmeback.gemspec
+- gem install sensu-plugins-pingmeback-*.gem
+deploy:
+  provider: rubygems
+  api_key:
+    secure: O4gLoCEOn9D68W2LQK0PpAGHWtz9J1G8YiAfSYPDFAVg7KN/mbllX+Iepco+13eLohTCXKn94IrEsylnf6QZPD2Vkhxt/AKrDDod5OAtYHR48TUwyEODl8WmWMaWspPzDRhVrnv96kj/6ZXLsbghUWVbMDU/kaRUytS7ykoq8KIw2/1yeApnKOIgpwzVEHPeJN5+KURqgDxVwHQWBNkoY5+dnS9onljL0eEztEtFFvG2rE4ukMnLeQNRLORyLHr9wNQFdmqPUVA1lgt9LZBPQeZET5fr4PWBmMiYD5VU2yuBnak68HVfXoydAK/mIxLGhUHSSOmXR/jdUt1max0VM/En0Jx0vC/yxQaCveHI3p3caqv/vIoN39LgvUTdu7xLNwEXBaeFjC3lXVzT4OURfw6btufaAT+Z7FpEyvevlusVRcuD/fYaaH4ddNnRfDHUU/x5hKl/NQYbRT6KRQW7JrpHtcS0YUqNUe076xGIchy4UBV5QwPzw0Dgsjmg4Rfwzutj+sbQcXA5Pyho8N8nwfiKMOZt8UdCsYeeReBbFAep0Vvmx3ymS4pdOkE34wIK17OIzNm+Qdop4vdotfcEhPddVqiDywfTXLt8UiA3MYsXP4wToZWRDoWGgHOsZgmsC530GpmcrS3RFW+0X8OglZ/hDyFxSftsEpUwGWP3tyQ=
+  gem: sensu-plugins-pingmeback
+  on:
+    tags: true
+    all_branches: true
+    rvm: 2.2
+    repo: yanc0/sensu-plugins-pingmeback
