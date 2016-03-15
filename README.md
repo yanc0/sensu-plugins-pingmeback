@@ -1,4 +1,5 @@
 ## Sensu-Plugins-pingmeback
+[![Build Status](https://travis-ci.org/yanc0/sensu-plugins-pingmeback.svg?branch=master)](https://travis-ci.org/yanc0/sensu-plugins-pingmeback)
 
 ## Functionality
 
