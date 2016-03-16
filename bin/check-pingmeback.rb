@@ -95,7 +95,7 @@ class PingmebackCheck < Sensu::Plugin::Check::CLI
       uri = URI(config[:host])
       req = Net::HTTP::Post.new(uri, 'Content-Type' => 'application/json')
       req.body = { url: config[:url], pattern: config[:pattern] }.to_json
-      res = Net::HTTP.start(uri.hostname, uri.port) do |http|
+      res = Net::HTTP.start(uri.hostname, uri.port, use_ssl: uri.scheme == 'https') do |http|
         http.request(req)
       end
 
