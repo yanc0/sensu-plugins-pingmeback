@@ -125,7 +125,7 @@ class PingmebackCheck < Sensu::Plugin::Check::CLI
             critical "Pattern \"#{config[:pattern]}\" not present in response body"
           end
         elsif k.to_s == 'message'
-          unknown json['message']
+          critical json['message']
         end
       end
     else
