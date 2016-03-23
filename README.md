@@ -6,7 +6,8 @@
 ## Functionality
 
 ## Files
- * bin/check-pingmeback.rb
+  * bin/check-pingmeback.rb
+  * bin/metrics-pingmeback.rb
 
 ## Usage
 
