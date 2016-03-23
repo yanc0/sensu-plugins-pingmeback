@@ -31,7 +31,7 @@ Gem::Specification.new do |s|
   s.require_paths          = ['lib']
   s.required_ruby_version  = '>= 1.9.3'
 
-  s.summary                = 'Sensu plugins for pingmeback'
+  s.summary                = 'Ask for remote HTTP check via a pingmeback instance'
   s.test_files             = s.files.grep(%r{^(test|spec|features)/})
   s.version                = SensuPluginsPingmeback::Version::VER_STRING
 
